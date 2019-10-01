@@ -10,6 +10,10 @@ type Animal interface {
 	Name() string
 }
 
+type PuruDongWu interface {
+	TaiSheng()
+}
+
 type Dog struct {
 }
 
@@ -26,60 +30,25 @@ func (d Dog) Name() string {
 	return "旺财"
 }
 
-type Pig struct {
-}
-
-func (d Pig) Talk() {
-	fmt.Println("坑坑坑")
-}
-
-func (d Pig) Eat() {
-	fmt.Println("我在吃草")
-}
-
-func (d Pig) Name() string {
-	fmt.Println("我的名字叫猪八戒")
-	return "猪八戒"
-}
-
-func testInterface1() {
-	var d Dog
-	var a Animal
-	a = &d
-
-	a.Eat()
-	a.Talk()
-	a.Name()
-
-	var pig Pig
-	a = &pig
-	a.Eat()
-	a.Talk()
-	a.Name()
-
-	fmt.Printf("%T %v\n", a, a)
-}
-
-func just(a Animal) {
-	//d, ok := a.(Dog)
-	//p, ok := a.(Pig)
-	switch v := a.(type) {
-	case Dog:
-		fmt.Printf("v is dog, %v\n", v)
-	case Pig:
-		fmt.Printf("v is dog, %v\n", v)
-	default:
-		fmt.Printf("not support")
-	}
-}
-
-func testInterface2() {
-	var d Dog
-	just(&d)
+func (d Dog) TaiSheng() {
+	fmt.Println("狗是胎生的")
 }
 
 func main() {
-	testInterface1()
+	var d Dog
+	var a Animal
 
-	//testInterface2()
+	fmt.Println("%v %T %p", a, a, a)
+
+	if a == nil {
+		//a.Eat()
+		fmt.Println("a is nil")
+	}
+
+	a = d
+	a.Eat()
+
+	var b PuruDongWu
+	b = d
+	b.TaiSheng()
 }

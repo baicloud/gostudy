@@ -1,0 +1,11 @@
+{
+	"ImportPath": "github.com/baicloud/gostudy/listen25/godep_example",
+	"GoVersion": "go1.12",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/baicloud/gostudy/listen6/calc",
+			"Rev": "34b4419edbdabc963b4188dadb20bea24440dde7"
+		}
+	]
+}
