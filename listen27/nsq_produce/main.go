@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/nsqio/go-nsq"
 )
@@ -11,14 +12,13 @@ import (
 var producer *nsq.Producer
 
 func main() {
-	nsqAddress := "192.168.56.101:4150"
+	nsqAddress := "122.152.220.31:4150"
 	err := initProducer(nsqAddress)
 	if err != nil {
 		fmt.Printf("init producer failed,err", err)
 		return
 	}
-reader:
-	bufio.NewReader(os.Stdin)
+	reader := bufio.NewReader(os.Stdin)
 	for {
 		data, err := reader.ReadString('\n')
 		if err != nil {
