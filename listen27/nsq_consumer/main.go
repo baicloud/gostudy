@@ -18,7 +18,7 @@ func (*Consumer) HandleMessage(msg *nsq.Message) error {
 }
 
 func main() {
-	err := initConsumer("order_queue", "first", "122.152.220.31:4161")
+	err := initConsumer("order_queue", "first", "127.0.0.1:4161")
 	if err != nil {
 		fmt.Printf("init consumer failed,err:%v\n", err)
 		return
